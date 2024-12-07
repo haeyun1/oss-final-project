@@ -11,13 +11,38 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-nav a {
+a {
+    color: white;
     text-decoration: none;
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 5px;
+    font-size: 18px;
 }
 
-nav a:hover {
-    background-color: #ddd;
+a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    flex: 1;
+}
+
+a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    text-align: center;
 }

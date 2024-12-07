@@ -1,22 +1,20 @@
 import React from "react";
-import "../App.css"; // CSS 파일을 임포트합니다.
+import "../App.css";
 
-function NoticeCard({ notice }) {
+function NoticeCard({ notice, children }) {
+    const formatDate = (date) => {
+        const newDate = new Date(date);
+        const year = newDate.getFullYear();
+        const month = (newDate.getMonth() + 1).toString().padStart(2, "0");
+        const day = newDate.getDate().toString().padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    };
+
     return (
         <div className="notice-card">
-            <h3 className="notice-title">{notice.title}</h3>
-            <p className="notice-date">
-                Date: <span>{notice.date}</span>
-            </p>
-            <p className="notice-sale-start">
-                Sale Start: <span>{notice.date_sale_start}</span>
-            </p>
-            <p className="notice-sale-end">
-                Sale End: <span>{notice.date_sale_end}</span>
-            </p>
-            <a href={notice.url} target="_blank" rel="noopener noreferrer" className="read-more">
-                Read More
-            </a>
+            <h3 className="title">{notice.title}</h3>
+            <p className="content">{formatDate(notice.date)}</p>
+            <div className="footer">{children}</div>
         </div>
     );
 }

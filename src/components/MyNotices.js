@@ -6,7 +6,8 @@ const MOCKAPI_URL = "https://6744288fb4e2e04abea10909.mockapi.io/notices";
 
 function MyNotices() {
     const [myNotices, setMyNotices] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [editNotice, setEditNotice] = useState(null); // Store the notice being edited
 
     useEffect(() => {
         const fetchMyNotices = async () => {
@@ -22,17 +23,19 @@ function MyNotices() {
         setMyNotices((prev) => prev.filter((notice) => notice.id !== id));
     };
 
-    const openModal = () => {
-        setIsModalOpen(true); // 모달 열기
+    const openModal = (notice = null) => {
+        setEditNotice(notice); // If no notice, it will be for adding a new one
+        setIsModalOpen(true); // Open the modal
     };
 
     const closeModal = () => {
-        setIsModalOpen(false); // 모달 닫기
+        setIsModalOpen(false); // Close the modal
+        setEditNotice(null); // Reset the edit notice when closing
     };
 
     return (
         <div>
-            <button onClick={openModal} style={{ marginTop: "20px" }}>
+            <button onClick={() => openModal()} style={{ marginTop: "20px" }}>
                 Add Notice
             </button>
 
@@ -41,19 +44,30 @@ function MyNotices() {
                     <div
                         key={notice.id}
                         style={{
-                            width: "60%",
+                            display: "flex",
+                            justifyContent: "center",
+                            width: "100%",
                             margin: "10px",
-                            padding: "10px",
                         }}>
-                        <NoticeCard notice={notice} />
-                        <button className="back-button" onClick={() => deleteNotice(notice.id)}>
-                            Delete
-                        </button>
+                        <NoticeCard notice={notice}>
+                            <button className="add-button" onClick={() => openModal(notice)}>
+                                Edit
+                            </button>
+                            <button className="add-button" onClick={() => deleteNotice(notice.id)}>
+                                Delete
+                            </button>
+                        </NoticeCard>
                     </div>
                 ))}
             </div>
 
-            {isModalOpen && <AddNotice closeModal={closeModal} setMyNotices={setMyNotices} />}
+            {isModalOpen && (
+                <AddNotice
+                    closeModal={closeModal}
+                    setMyNotices={setMyNotices}
+                    editNotice={editNotice} // Pass the notice to be edited
+                />
+            )}
         </div>
     );
 }

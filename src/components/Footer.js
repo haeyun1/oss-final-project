@@ -3,13 +3,13 @@ function Footer() {
         <>
             <div
                 style={{
-                    backgroundColor: "#BBB",
+                    backgroundColor: "#DDD",
                     textAlign: "center",
                     bottom: "0px",
                     position: "fixed",
                     width: "100vw",
-                    lineHeight: "2",
-                    fontSize: "20px",
+                    lineHeight: "1.6",
+                    fontSize: "12px",
                 }}>
                 Data based on NEXON Open API / Handong Global University
             </div>

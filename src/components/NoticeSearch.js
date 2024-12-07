@@ -1,49 +1,61 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // useNavigate 훅을 가져옵니다.
+import React, { useState } from "react";
 import NoticeCard from "./NoticeCard";
-import "../App.css"; // CSS 파일을 임포트합니다.
+import "../App.css";
 
-const MOCKAPI_URL = "https://6744288fb4e2e04abea10909.mockapi.io/notices";
+function NoticeSearch({ notices }) {
+    const [query, setQuery] = useState(""); // 검색어 상태
+    const [filteredNotices, setFilteredNotices] = useState(notices); // 초기 필터된 공지사항 상태
 
-function NoticeSearch() {
-    const [notices, setNotices] = useState([]);
-    const [query, setQuery] = useState("");
-    const navigate = useNavigate(); // useNavigate 훅을 사용하여 네비게이션 기능을 만듭니다.
+    const handleSearch = (e) => {
+        const searchQuery = e.target.value;
+        setQuery(searchQuery); // 입력된 검색어 상태 업데이트
 
-    useEffect(() => {
-        const fetchNotices = async () => {
-            const response = await fetch(MOCKAPI_URL);
-            const data = await response.json();
-            setNotices(data || []); // MockAPI에서 받아온 공지사항을 상태에 저장
-        };
-        fetchNotices();
-    }, []);
+        // 검색어를 포함한 공지사항을 필터링
+        const result = notices.filter((notice) => notice.title.toLowerCase().includes(searchQuery.toLowerCase()));
+        setFilteredNotices(result); // 필터링된 결과 상태 업데이트
+    };
 
-    const filteredNotices = notices.filter((notice) => notice.title.toLowerCase().includes(query.toLowerCase()));
-
-    // 이전 페이지로 돌아가기 함수
-    const goBack = () => {
-        navigate(-1); // navigate(-1)은 이전 페이지로 돌아가게 만듭니다.
+    const handleAddNotice = async (notice) => {
+        try {
+            const response = await fetch("https://6744288fb4e2e04abea10909.mockapi.io/notices", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(notice),
+            });
+            if (!response.ok) {
+                throw new Error("Error adding to MockAPI");
+            }
+            console.log("Data added to MockAPI:", notice);
+            alert("Data Added!");
+        } catch (error) {
+            console.error("Error adding data to MockAPI:", error);
+        }
     };
 
     return (
         <div className="notice-search">
-            <button className="back-button" onClick={goBack}>
-                &#8592; Back
-            </button>
-
+            <span className="searchT">Search </span>
             <input
                 type="text"
                 placeholder="Search notices..."
                 value={query}
-                onChange={(e) => setQuery(e.target.value)} // 사용자가 입력할 때마다 query 상태 변경
+                onChange={handleSearch} // 실시간 검색 처리
                 className="search-input"
             />
-
             <div className="notice-list">
-                {filteredNotices.map((notice) => (
-                    <NoticeCard key={notice.id} notice={notice} />
-                ))}
+                {filteredNotices.length === 0
+                    ? "No matching notices found."
+                    : filteredNotices.map((notice) => (
+                          <div key={notice.id} className="notice-card-wrapper">
+                              <NoticeCard notice={notice}>
+                                  <button onClick={() => handleAddNotice(notice)} className="add-button">
+                                      Add
+                                  </button>
+                              </NoticeCard>
+                          </div>
+                      ))}
             </div>
         </div>
     );
