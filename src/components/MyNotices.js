@@ -53,7 +53,7 @@ function MyNotices() {
                             <button className="add-button" onClick={() => openModal(notice)}>
                                 Edit
                             </button>
-                            <button className="add-button" onClick={() => deleteNotice(notice.id)}>
+                            <button className="delete-button" onClick={() => deleteNotice(notice.id)}>
                                 Delete
                             </button>
                         </NoticeCard>

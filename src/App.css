@@ -43,13 +43,13 @@
 }
 
 .back-button:hover {
-  background-color: #9b756c; /* 호버시 배경색 */
+  background-color: rgb(255, 190, 120); /* 호버시 배경색 */
 }
 
 .search-div {
-    display: flex;
-    align-items: center; /* 수직 정렬 */
-    justify-content: center; /* 수평 정렬 */
+  display: flex;
+  align-items: center; /* 수직 정렬 */
+  justify-content: center; /* 수평 정렬 */
 }
 
 .searchT {
@@ -66,7 +66,6 @@
   font-size: 20px;
   border-radius: 10px;
 }
-
 
 .notice-list {
   width: 100%;
@@ -94,8 +93,14 @@
   border-radius: 5px;
 }
 
-.add-button:hover {
-    background-color: rgb(255, 190, 120);
+.delete-button {
+  padding: 8px 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
 }
 
 .notice-card {
@@ -143,8 +148,23 @@
   transition: background-color 0.3s ease;
 }
 
+.notice-card .footer .delete-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: red; /* 버튼 색상 */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .notice-card .footer .add-button:hover {
   background-color: rgb(255, 190, 120); /* 버튼 호버 색상 */
+}
+
+.notice-card .footer .delete-button:hover {
+  background-color: #ffa1a1;
 }
 
 .notice-title {
@@ -165,21 +185,6 @@
 .notice-sale-start span,
 .notice-sale-end span {
   font-weight: bold; /* 날짜 부분을 굵게 */
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 15px;
-  font-size: 14px;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.read-more:hover {
-  color: #0056b3;
-  text-decoration: underline; /* 호버 시 텍스트 밑줄 */
 }
 
 .card-wrapper {
@@ -255,12 +260,16 @@
 /* 버튼 - 추가 및 업데이트 버튼 */
 .addNotice__button {
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color: #9b756c;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.addNotice__button:hover {
+  background-color: rgb(255, 190, 120);
 }
 
 /* 닫기 버튼 */
@@ -272,4 +281,8 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.addNotice__closeButton:hover {
+  background-color: #ffa1a1;
 }
