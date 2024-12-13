@@ -144,7 +144,7 @@ function AddNotice({ closeModal, setMyNotices, editNotice }) {
               onClick={addOrEditNotice}
               className="addNotice__button"
             >
-              {editNotice ? "Update Notice" : "Add Notice"}
+              {editNotice ? "Update" : "Add"}
             </button>
             <button
               type="button"
