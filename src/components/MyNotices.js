@@ -35,7 +35,7 @@ function MyNotices() {
 
     return (
         <div>
-            <button onClick={() => openModal()} style={{ marginTop: "20px" }}>
+            <button className="add-button" onClick={() => openModal()} style={{ marginTop: "20px" }}>
                 Add Notice
             </button>
 

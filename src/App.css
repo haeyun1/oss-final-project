@@ -1,267 +1,275 @@
 .App {
-    text-align: center;
+  text-align: center;
 }
 
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .notice-search {
-    font-family: Arial, sans-serif;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
 .back-button:hover {
-    background-color: #45a049; /* 호버시 배경색 */
+  background-color: #9b756c; /* 호버시 배경색 */
+}
+
+.search-div {
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+    justify-content: center; /* 수평 정렬 */
 }
 
 .searchT {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px; /* 글자와 인풋 간 간격 추가 */
 }
 
 .search-input {
-    width: 300px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    font-size: 20px;
-    border-radius: 10px;
+  width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
+
 .notice-list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .notice-card-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .add-button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
+  padding: 8px 16px;
+  background-color: #9b756c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
 }
 
 .add-button:hover {
-    background-color: #0056b3;
+    background-color: rgb(255, 190, 120);
 }
 
 .notice-card {
-    width: 70%;
-    text-align: center;
-    background-color: #fcffee; /* 배경색을 흰색으로 변경 */
-    border-radius: 12px; /* 더 둥근 모서리 */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.205); /* 좀 더 부드러운 그림자 */
-    padding: 10px; /* 카드의 여백 */
-    margin: 10px 0; /* 카드 간 간격 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 호버 시 효과 */
-    overflow: hidden; /* 이미지나 내용이 카드 바깥으로 나오지 않도록 */
-    display: flex;
-    flex-direction: column; /* 카드 내용과 버튼이 세로로 정렬되도록 설정 */
+  width: 70%;
+  text-align: center;
+  background-color: white;
+  border-radius: 12px; /* 더 둥근 모서리 */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.205); /* 좀 더 부드러운 그림자 */
+  padding: 10px; /* 카드의 여백 */
+  margin: 10px 0; /* 카드 간 간격 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 호버 시 효과 */
+  overflow: hidden; /* 이미지나 내용이 카드 바깥으로 나오지 않도록 */
+  display: flex;
+  flex-direction: column; /* 카드 내용과 버튼이 세로로 정렬되도록 설정 */
 }
 
 .notice-card .title {
-    font-size: 1.8rem; /* 제목 크기 조정 */
-    font-weight: 600; /* 제목 두께 */
-    color: #333333; /* 제목 색상 */
-    margin-bottom: 0px; /* 제목과 내용 간 간격 */
+  font-size: 1.8rem; /* 제목 크기 조정 */
+  font-weight: 600; /* 제목 두께 */
+  color: #333333; /* 제목 색상 */
+  margin-bottom: 0px; /* 제목과 내용 간 간격 */
 }
 
 .notice-card .content {
-    font-size: 1.2rem; /* 본문 내용 크기 */
-    color: #383838; /* 본문 색상 */
-    margin-bottom: 10px; /* 본문과 버튼 간 간격 */
+  font-size: 1.2rem; /* 본문 내용 크기 */
+  color: #383838; /* 본문 색상 */
+  margin-bottom: 10px; /* 본문과 버튼 간 간격 */
 }
 
 .notice-card .footer {
-    margin-top: auto; /* 하단으로 밀어내어 버튼을 맨 아래로 배치 */
-    display: flex;
-    justify-content: center; /* 버튼을 중앙에 정렬 */
-    align-items: center;
+  margin-top: auto; /* 하단으로 밀어내어 버튼을 맨 아래로 배치 */
+  display: flex;
+  justify-content: center; /* 버튼을 중앙에 정렬 */
+  align-items: center;
 }
 
 .notice-card .footer .add-button {
-    padding: 10px 20px;
-    font-size: 20px;
-    background-color: #007bff; /* 버튼 색상 */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #9b756c; /* 버튼 색상 */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .notice-card .footer .add-button:hover {
-    background-color: #0056b3; /* 버튼 호버 색상 */
+  background-color: rgb(255, 190, 120); /* 버튼 호버 색상 */
 }
 
 .notice-title {
-    font-size: 18px;
-    color: #333;
-    margin: 0 0 10px 0; /* 제목과 본문 사이 여백 */
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 10px 0; /* 제목과 본문 사이 여백 */
 }
 
 .notice-date,
 .notice-sale-start,
 .notice-sale-end {
-    font-size: 14px;
-    color: #777;
-    margin: 5px 0;
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
 }
 
 .notice-date span,
 .notice-sale-start span,
 .notice-sale-end span {
-    font-weight: bold; /* 날짜 부분을 굵게 */
+  font-weight: bold; /* 날짜 부분을 굵게 */
 }
 
 .read-more {
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .read-more:hover {
-    color: #0056b3;
-    text-decoration: underline; /* 호버 시 텍스트 밑줄 */
+  color: #0056b3;
+  text-decoration: underline; /* 호버 시 텍스트 밑줄 */
 }
 
 .card-wrapper {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Overlay - 모달 배경 */
 .addNotice__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Modal Container - 모달 박스 */
 .addNotice__modalContainer {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Modal Header - 제목 */
 .addNotice__modalHeader {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 2rem;
+  text-align: center;
 }
 
 /* Form Group - 각 입력 필드 */
 .addNotice__formGroup {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 /* Label - 입력 필드의 레이블 */
 .addNotice__label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 1rem;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
 }
 
 /* Input Field - 입력창 */
 .addNotice__input {
-    width: 80%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 /* Checkbox - 체크박스 스타일 */
 .addNotice__checkbox {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Button Container - 버튼 컨테이너 */
 .addNotice__buttonContainer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* 버튼 - 추가 및 업데이트 버튼 */
 .addNotice__button {
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 /* 닫기 버튼 */
 .addNotice__closeButton {
-    padding: 10px 20px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
 }
